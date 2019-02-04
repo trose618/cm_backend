@@ -8,7 +8,7 @@ class Api::V1::AuthController < ApplicationController
         
         if user && user.authenticate(login_user_params[:password])
             
-            token = JWT.encode({user_id: user.id}, 'AINTSHIT')
+            token = JWT.encode({user_id: user.id}, 'AINTNOTHING')
             render json: {user: user, jwt: token}
         else
             render json: {error: "Invalid username or password"}, status: 400
