@@ -14,15 +14,14 @@ class ApplicationController < ActionController::API
         request.authorization
     end
 
-    def current_user
-        if request.authorization != "null"
-            
+    def current_user?
+        if request.authorization            
             User.find(decode_token["user_id"])
         end
     end
 
     def logged_in?
-    !!current_user
+    !!current_user?
     end
 
     def authorized
