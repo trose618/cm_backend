@@ -3,13 +3,11 @@ class ApplicationController < ActionController::API
     before_action :authorized
 
     def issue_token(payload)
-        JWT.encode(payload, 'AINTSHIT')
+        JWT.encode(payload, 'AINTNOTHING')
     end
 
     def decode_token
-        if request.authorization != "null"
-            JWT.decode(get_token, 'AINTSHIT')[0]
-        end
+        JWT.decode(get_token, 'AINTNOTHING')[0]
     end
 
     def get_token
