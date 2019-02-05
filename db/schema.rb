@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_200957) do
+ActiveRecord::Schema.define(version: 2019_02_05_202318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(version: 2019_02_04_200957) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.datetime "startTime"
-    t.datetime "endTime"
-    t.bigint "client_level"
+    t.time "startTime"
+    t.float "client_level"
     t.string "client_name"
-    t.string "age_range"
     t.string "lesson_focus"
     t.string "client_email"
     t.string "location"
@@ -34,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_04_200957) do
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "lesson_date"
+    t.bigint "client_age"
   end
 
   create_table "messages", force: :cascade do |t|
