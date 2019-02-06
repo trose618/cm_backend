@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get '/current_user', :to => "auth#show"
       post '/login', :to => 'auth#create'
       get '/reload', :to => 'users#reload'
-
+      get '/coach_lessons', :to => 'lessons#coach_lessons'
       mount ActionCable.server => '/cable'
     end
   end
