@@ -43,7 +43,7 @@ class Api::V1::LessonsController < ApplicationController
 private
 
   def lesson_params
-    params.require(:lesson).permit(:client_level, :client_name, :lesson_focus, :client_email, :coach_id, :client_id, :lesson_date, :client_age, :accepted)
+    params.require(:lesson).permit(:client_level, :client_name, :lesson_focus, :client_email, :coach_id, :client_id, :lesson_date, :client_age, :accepted, :checked)
   end
 
   def find_lesson
