@@ -7,8 +7,7 @@ class Api::V1::UsersController < ApplicationController
         render json: @users
     end
 
-    def update
-    end
+    
 
     def coaches
         @users = User.all.select{|user| user.client == false}
@@ -38,13 +37,32 @@ class Api::V1::UsersController < ApplicationController
 
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.skip_password_validation = true
+       
+        if @user.valid?
+            @user.update(update_user_params)
+            render json: {user: @user}
+          else
+            render json: {error: "Failed to update user"}
+          end
+    end
+
     def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        render json: {message: "account deleted"}
     end
 
     private
 
     def user_params
         params.require(:user).permit(:username, :client, :password, :image_url, :bio)
+    end
+
+    def update_user_params
+        params.require(:user).permit(:username, :bio, :image_url)
     end
 
     def find_user

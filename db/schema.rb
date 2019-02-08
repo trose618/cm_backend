@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_161542) do
+ActiveRecord::Schema.define(version: 2019_02_07_232550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,11 @@ ActiveRecord::Schema.define(version: 2019_02_07_161542) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "calendar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "client"
-    t.string "image_url"
-    t.string "bio"
+    t.string "image_url", default: "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1-744x744.jpg"
+    t.string "bio", default: "Quisque purus tellus, eleifend elementum tortor congue, accumsan\n    vehicula metus. Praesent non sapien ut arcu aliquet varius at ac\n    nisi. Aliquam ut posuere metus, ac fringilla lectus. Interdum et\n    malesuada fames ac ante ipsum primis in faucibus. Integer\n    ullamcorper non lacus maximus viverra. Sed et faucibus orci. In\n    efficitur ante ac sapien lobortis, posuere tempor orci gravida."
   end
 
   add_foreign_key "messages", "conversations"
