@@ -15,7 +15,8 @@ class ApplicationController < ActionController::API
     end
 
     def current_user?
-        if request.authorization            
+        
+        if request.authorization           
             User.find(decode_token["user_id"])
         end
     end

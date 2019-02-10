@@ -8,6 +8,11 @@ class Api::V1::MessagesController < ApplicationController
           ).serializable_hash
           MessagesChannel.broadcast_to conversation, serialized_data
           head :ok
+
+          #render json: message
+          
+        else
+          render json: {error: "unable to create message", issues: message.erros}
         end
       end
       
