@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :conversations, only: [:index, :create]
-      resources :messages, only: [:create]
+      resources :messages, only: [:create, :index]
       resources :users, only: [:index, :create, :update, :destroy]
       resources :lessons, only: [:index, :create, :update, :destroy]
       get '/coaches', :to => 'users#coaches'
