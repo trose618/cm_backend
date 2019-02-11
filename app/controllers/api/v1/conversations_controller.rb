@@ -23,7 +23,7 @@ class Api::V1::ConversationsController < ApplicationController
           head :ok
           
         else
-          render json: { error: 'Failed to create convo' }
+          render json: { error: 'Failed to create convo, already exists' }
         end
       end
       

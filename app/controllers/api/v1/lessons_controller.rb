@@ -17,6 +17,12 @@ class Api::V1::LessonsController < ApplicationController
     #get this route to work!
   end
 
+  def confirmed_lessons
+    id = decode_token["user_id"]
+    @lessons = Lesson.all.select{|lesson| (lesson.coach_id == id || lesson.client_id == id) && lesson.checked==true}
+    render json: @lessons
+  end
+
   def create
     @lesson = Lesson.create(lesson_params)
     if @lesson.valid?

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get '/reload', :to => 'users#reload'
       get '/coach_lessons', :to => 'lessons#coach_lessons'
       get '/user_convos', :to => 'conversations#users_convos'
+      get '/confirmed_lessons', :to => 'lessons#confirmed_lessons'
       mount ActionCable.server => '/cable'
     end
   end
