@@ -14,7 +14,7 @@ class Api::V1::MessagesController < ApplicationController
           ).serializable_hash
           MessagesChannel.broadcast_to conversation, serialized_data
           head :ok
-
+         
           #render json: message
           
         else

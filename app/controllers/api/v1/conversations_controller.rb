@@ -15,6 +15,7 @@ class Api::V1::ConversationsController < ApplicationController
     
       def create
         conversation = Conversation.new(conversation_params)
+        
         if conversation.save
           serialized_data = ActiveModelSerializers::Adapter::Json.new(
             ConversationSerializer.new(conversation)
