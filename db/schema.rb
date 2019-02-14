@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_204654) do
+ActiveRecord::Schema.define(version: 2019_02_14_051123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_204654) do
     t.bigint "client_age"
     t.boolean "accepted"
     t.boolean "checked"
+    t.string "coach_name"
   end
 
   create_table "messages", force: :cascade do |t|

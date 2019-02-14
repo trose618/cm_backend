@@ -7,6 +7,8 @@ class MessagesChannel < ApplicationCable::Channel
     stream_for conversation
   end
 
+  
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
