@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :jobs, class_name: :Lesson, foreign_key: :coach_id
-    has_many :lessons, class_name: :Lesson, foreign_key: :client_id
+    has_many :jobs, class_name: :Lesson, foreign_key: :coach_id, dependent: :delete_all
+    has_many :lessons, class_name: :Lesson, foreign_key: :client_id, dependent: :delete_all
     has_and_belongs_to_many :conversations, dependent: :destroy
     
     has_secure_password

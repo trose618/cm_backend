@@ -51,8 +51,10 @@ class Api::V1::UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id])
-        @user.destroy
+        User.all.delete(@user)
+       
         render json: {message: "account deleted"}
+        
     end
 
     private
