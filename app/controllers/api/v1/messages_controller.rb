@@ -7,8 +7,8 @@ class Api::V1::MessagesController < ApplicationController
 
     def create
         message = Message.new(message_params)
-        if mmessage.save
-          render json: {message: mmessage }
+        if message.save
+          render json: {message: message }
       
         else
           render json: {error: "unable to create message", issues: message.erros}

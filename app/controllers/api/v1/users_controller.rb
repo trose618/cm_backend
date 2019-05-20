@@ -16,12 +16,14 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
+        
+        @user = User.new(user_params)
+        if @user.save
             token = JWT.encode({user_id: @user.id}, 'AINTNOTHING')
             render json: {user: @user, jwt: token}
         else
-            render json: { error: 'Failed to create account' }, status: 422
+            
+            render json: { error: @user.errors.full_messages }, status: 422
         end  
     end
 
